@@ -1,0 +1,10 @@
+# Normalize line endings; keep shell scripts LF so the Gradle wrapper runs on *nix.
+* text=auto
+*.java text
+*.gradle text
+*.properties text
+*.json text
+*.md text
+gradlew text eol=lf
+*.bat text eol=crlf
+*.jar binary

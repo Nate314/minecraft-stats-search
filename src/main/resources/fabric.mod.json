@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "statssearch",
+	"version": "${version}",
+	"name": "Stats Search",
+	"description": "Adds a search box to the in-game Statistics screen so you can filter stats by name.",
+	"authors": [
+		"nathangawith"
+	],
+	"contact": {},
+	"license": "MIT",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"com.gawith.statssearch.StatsSearch"
+		],
+		"client": [
+			"com.gawith.statssearch.StatsSearchClient"
+		]
+	},
+	"mixins": [
+		{
+			"config": "statssearch.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.19.3",
+		"minecraft": "~26.2",
+		"java": ">=25",
+		"fabric-api": "*"
+	}
+}

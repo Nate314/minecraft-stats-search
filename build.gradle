@@ -1,0 +1,79 @@
+plugins {
+	// NOTE: 26.x uses the new, non-remapping Loom plugin (Minecraft is unobfuscated now).
+	id 'net.fabricmc.fabric-loom' version "${loom_version}"
+	id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+	archivesName = project.archives_base_name
+}
+
+repositories {
+	// Loom adds the Minecraft + library repositories automatically.
+	// Only add repositories here when depending on other mods.
+}
+
+loom {
+	// Splits common (server-safe) and client-only code into separate source sets.
+	splitEnvironmentSourceSets()
+
+	mods {
+		"statssearch" {
+			sourceSet sourceSets.main
+			sourceSet sourceSets.client
+		}
+	}
+}
+
+dependencies {
+	// See gradle.properties to change versions.
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+	// In the 26.x era Minecraft is unobfuscated, so there is NO `mappings ...` line
+	// and `modImplementation` becomes plain `implementation`.
+	implementation "net.fabricmc:fabric-loader:${project.loader_version}"
+	implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+processResources {
+	def props = ["version": project.version]
+	inputs.properties props
+
+	filesMatching("fabric.mod.json") {
+		expand props
+	}
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.release = 25
+}
+
+java {
+	withSourcesJar()
+
+	sourceCompatibility = JavaVersion.VERSION_25
+	targetCompatibility = JavaVersion.VERSION_25
+}
+
+jar {
+	def projectName = project.name
+	inputs.property "projectName", projectName
+
+	from("LICENSE") {
+		rename { "${it}_$projectName" }
+	}
+}
+
+publishing {
+	publications {
+		create("mavenJava", MavenPublication) {
+			from components.java
+		}
+	}
+	repositories {
+		// Add publishing targets here if you want to publish the mod.
+	}
+}

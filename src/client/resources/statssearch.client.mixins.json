@@ -1,0 +1,17 @@
+{
+	"required": true,
+	"package": "com.gawith.statssearch.mixin",
+	"compatibilityLevel": "JAVA_21",
+	"client": [
+		"AbstractSelectionListAccessor",
+		"EntryAccessor",
+		"HeaderEntryAccessor",
+		"HeaderEntryMixin",
+		"ItemStatisticsListAccessor",
+		"StatisticsTabAccessor",
+		"StatsScreenMixin"
+	],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
