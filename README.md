@@ -5,8 +5,8 @@ Statistics screen** (`Esc` → Statistics) so you can filter the General / Items
 name instead of scrolling. It also **pins the Items tab's column header** so the sort-button
 labels stay visible while you scroll.
 
-- **Minecraft:** 26.2 (Fabric)
-- **Fabric Loader:** 0.19.3 · **Fabric API:** 0.153.0+26.2 · **Loom:** 1.17
+- **Minecraft:** 26.3 (Fabric)
+- **Fabric Loader:** 0.19.5 · **Fabric API:** 0.161.0+26.3 · **Loom:** 1.17
 - **Java:** 25 (required: the Minecraft 26.x toolchain does not build on older JDKs)
 
 > Minecraft 26.x is the first **unobfuscated** release line, so this project uses Mojang's
@@ -15,10 +15,10 @@ labels stay visible while you scroll.
 
 ## Install (players)
 
-1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 26.2.
-2. Put [Fabric API](https://modrinth.com/mod/fabric-api) (`0.153.0+26.2` or compatible) in your
+1. Install [Fabric Loader](https://fabricmc.net/use/) for Minecraft 26.3.
+2. Put [Fabric API](https://modrinth.com/mod/fabric-api) (`0.161.0+26.3` or compatible) in your
    `mods` folder.
-3. Put `statssearch-1.0.0.jar` (from `./gradlew build`, or a release) in the same `mods` folder.
+3. Put `statssearch-1.0.0+26.3.jar` (from `./gradlew build`, or a release) in the same `mods` folder.
 
 Then open a world → `Esc` → **Statistics** and type in the search box.
 
@@ -27,7 +27,7 @@ Then open a world → `Esc` → **Statistics** and type in the search box.
 Requires **JDK 25**. The Gradle wrapper is included, so:
 
 ```sh
-./gradlew build         # produces build/libs/statssearch-1.0.0.jar
+./gradlew build         # produces build/libs/statssearch-1.0.0+26.3.jar
 ./gradlew runClient     # launches a dev client with the mod loaded
 ./gradlew genSources    # (optional) decompile the MC sources for reference
 ```
