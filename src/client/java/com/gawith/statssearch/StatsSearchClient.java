@@ -9,6 +9,6 @@ import net.fabricmc.api.ClientModInitializer;
 public class StatsSearchClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
-		StatsSearch.LOGGER.info("Stats Search loaded — statistics screen will show a search box.");
+		StatsSearch.LOGGER.info("Stats Search loaded: the statistics screen now has a search box.");
 	}
 }
