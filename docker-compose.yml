@@ -1,0 +1,23 @@
+services:
+  build:
+    build: .
+    volumes:
+      - ./build/libs:/src/build/libs
+      # Gradle, Loom and the Minecraft download are cached between runs.
+      - gradle-cache:/root/.gradle
+
+  # Serves build/libs so the launcher has a port and URL. Starting it waits for the build to
+  # succeed, so ./run.ps1 returns only once the jar is in build/libs.
+  jar:
+    image: python:3.13-alpine
+    command: ["python", "-m", "http.server", "8080", "-d", "/srv"]
+    volumes:
+      - ./build/libs:/srv:ro
+    ports:
+      - "${JAR_PORT:-8090}:8080"
+    depends_on:
+      build:
+        condition: service_completed_successfully
+
+volumes:
+  gradle-cache:
