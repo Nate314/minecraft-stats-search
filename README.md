@@ -32,6 +32,10 @@ Requires **JDK 25**. The Gradle wrapper is included, so:
 ./gradlew genSources    # (optional) decompile the MC sources for reference
 ```
 
+Without a local JDK, `./run.ps1` (or `./run.sh`) builds the mod in Docker through
+[compose-launcher](https://github.com/Nate314/compose-launcher): the jar lands in `build/libs` and
+the folder is served at the URL it prints. `./run.ps1 down` stops it.
+
 Import the project into IntelliJ IDEA **2025.3+** for mixin support.
 
 ## How it works

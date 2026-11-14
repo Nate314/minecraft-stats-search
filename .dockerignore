@@ -1,0 +1,7 @@
+.git
+.gradle
+build
+compose-launcher
+.env
+.idea
+run

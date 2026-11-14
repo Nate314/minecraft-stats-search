@@ -26,3 +26,6 @@ Thumbs.db
 
 # Claude Code local settings
 .claude/
+
+# compose-launcher port picks
+.env
